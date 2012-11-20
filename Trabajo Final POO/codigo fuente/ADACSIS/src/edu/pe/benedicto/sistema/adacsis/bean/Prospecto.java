@@ -11,6 +11,10 @@ package edu.pe.benedicto.sistema.adacsis.bean;
 public class Prospecto {
     private String strPv_cidProspecto;
     private Persona objPv_persona;
+    
+    public Prospecto(){
+        
+    }
 
     public Prospecto(String strPv_cidProspecto, Persona objPv_persona) {
         this.strPv_cidProspecto = strPv_cidProspecto;
