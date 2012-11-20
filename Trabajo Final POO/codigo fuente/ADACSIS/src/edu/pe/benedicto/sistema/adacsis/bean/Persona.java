@@ -17,6 +17,10 @@ public class Persona {
     private String strPv_telefono;
     private String strPv_celular;
     private String strPv_email;
+    
+    public Persona(){
+        
+    }
 
     public Persona(Long lngPv_nidPersona, String strPv_nombre, String strPv_apellidoPaterno, String strPv_apellidoMaterno, String strPv_dni, String strPv_telefono, String strPv_celular, String strPv_email) {
         this.lngPv_nidPersona = lngPv_nidPersona;
