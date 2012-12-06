@@ -6,7 +6,9 @@ Trabajo final de POO
 Integrantes
 
 Cesar Miguel Illesca Cangalaya
+
 Frank Rojas 
+
 Lionel Lorenzo
 
 
