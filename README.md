@@ -1,16 +1,12 @@
-UPC-TrabajoFinal-2012-2-M2
-==========================
-
 Trabajo final de POO
 
 Integrantes
 
 Cesar Miguel Illesca Cangalaya
 
-Frank Rojas 
+Frank Rojas
 
 Lionel Lorenzo
-
 
 Google DOCS
 
@@ -23,3 +19,7 @@ http://scrumy.com/ciders20horns
 BITACORA
 
 https://docs.google.com/document/d/16cnNzMQo_mJANw864GHobsXp-nbpgJ9NOGLqNLbaMkE/edit
+
+CAT ( PRUEBAS)
+
+https://docs.google.com/file/d/0BzkrA5JeJCJJSF9qZGZMekZWbzA/edit
