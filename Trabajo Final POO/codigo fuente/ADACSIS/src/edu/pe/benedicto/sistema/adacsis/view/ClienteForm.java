@@ -1,9 +1,18 @@
-package edu.pe.benedicto.sistema.adacsis.bean;
-/**
- * @author Cesar Miguel Illesca Cangalaya
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
-public class Persona {
-    private Long   lngPv_nidPersona;
+package edu.pe.benedicto.sistema.adacsis.view;
+
+import edu.pe.benedicto.sistema.adacsis.bean.Cliente;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Admin
+ */
+public class ClienteForm {
     private String strPv_nombre;
     private String strPv_apellidoPaterno;
     private String strPv_apellidoMaterno;
@@ -12,28 +21,16 @@ public class Persona {
     private String strPv_celular;
     private String strPv_email;
     
-    public Persona(){
-        
+    private List<Cliente> objL_listaCliente= new ArrayList<Cliente>();
+
+    public List<Cliente> getObjL_listaCliente() {
+        return objL_listaCliente;
     }
 
-    public Persona(Long lngPv_nidPersona, String strPv_nombre, String strPv_apellidoPaterno, String strPv_apellidoMaterno, String strPv_dni, String strPv_telefono, String strPv_celular, String strPv_email) {
-        this.lngPv_nidPersona = lngPv_nidPersona;
-        this.strPv_nombre = strPv_nombre;
-        this.strPv_apellidoPaterno = strPv_apellidoPaterno;
-        this.strPv_apellidoMaterno = strPv_apellidoMaterno;
-        this.strPv_dni = strPv_dni;
-        this.strPv_telefono = strPv_telefono;
-        this.strPv_celular = strPv_celular;
-        this.strPv_email = strPv_email;
-    }        
-
-    public Long getStrPv_cidPersona() {
-        return lngPv_nidPersona;
+    public void setObjL_listaCliente(List<Cliente> objL_listaCliente) {
+        this.objL_listaCliente = objL_listaCliente;
     }
 
-    public void setStrPv_cidPersona(Long lngPv_nidPersona) {
-        this.lngPv_nidPersona = lngPv_nidPersona;
-    }
 
     public String getStrPv_nombre() {
         return strPv_nombre;
@@ -90,6 +87,4 @@ public class Persona {
     public void setStrPv_email(String strPv_email) {
         this.strPv_email = strPv_email;
     }
-    
-    
 }

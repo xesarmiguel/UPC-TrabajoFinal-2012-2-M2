@@ -8,60 +8,63 @@ import edu.pe.benedicto.sistema.adacsis.bean.Persona;
 import edu.pe.benedicto.sistema.adacsis.bean.Prospecto;
 import edu.pe.benedicto.sistema.adacsis.model.ProspectoDao;
 import edu.pe.benedicto.sistema.adacsis.view.ProspectoForm;
+import java.util.List;
 
 /**
  *
  * @author Admin
  */
 public class ProspectoAction {
-    public boolean filtrar(ProspectoForm objA_form){
-        //-DATOS ------------------------------------------------
-        objA_form.setStrPv_nombre("Cesar Miguel");
-        objA_form.setStrPv_apellidoMaterno("Cangalaya");
-        objA_form.setStrPv_apellidoPaterno("Illesca");
-        objA_form.setStrPv_celular("982350260");
-        objA_form.setStrPv_dni("46229036");
-        objA_form.setStrPv_email("miguelhades@hotmail.com");        
-        //-------------------------------------------------------
-        Prospecto objL_prospecto = new Prospecto();
-        Persona objL_persona = new Persona();
+    public List<Prospecto> filtrar(ProspectoForm objA_form){     
+        Prospecto objL_prospecto = new Prospecto();      
         // Setiamos los valores de la vista
-        objL_persona.setStrPv_apellidoMaterno(objA_form.getStrPv_apellidoMaterno());
-        objL_persona.setStrPv_apellidoPaterno(objA_form.getStrPv_apellidoPaterno());
-        objL_persona.setStrPv_nombre(objA_form.getStrPv_nombre());
-        objL_persona.setStrPv_celular(objA_form.getStrPv_celular());
-        objL_persona.setStrPv_dni(objA_form.getStrPv_celular());
-        objL_persona.setStrPv_email(objA_form.getStrPv_email());
-        // Insertamos a la persona con el prospecto
-        objL_prospecto.setObjPv_persona(objL_persona);
+        objL_prospecto.setStrPv_apellidoMaterno(objA_form.getStrPv_apellidoMaterno());
+        objL_prospecto.setStrPv_apellidoPaterno(objA_form.getStrPv_apellidoPaterno());
+        objL_prospecto.setStrPv_nombre(objA_form.getStrPv_nombre());
+        objL_prospecto.setStrPv_celular(objA_form.getStrPv_celular());
+        objL_prospecto.setStrPv_dni(objA_form.getStrPv_dni());
+        objL_prospecto.setStrPv_email(objA_form.getStrPv_email());
+        objL_prospecto.setStrPv_telefono(objA_form.getStrPv_telefono());
         // Insertamos el prospecto
         ProspectoDao objL_prospectoDao = new ProspectoDao();
         return objL_prospectoDao.filtrar(objL_prospecto);
     }
     
-    public boolean insertar(ProspectoForm objA_form){
-        //-DATOS ------------------------------------------------
-        objA_form.setStrPv_nombre("Cesar Miguel");
-        objA_form.setStrPv_apellidoMaterno("Cangalaya");
-        objA_form.setStrPv_apellidoPaterno("Illesca");
-        objA_form.setStrPv_celular("982350260");
-        objA_form.setStrPv_dni("46229036");
-        objA_form.setStrPv_email("miguelhades@hotmail.com");        
-        //-------------------------------------------------------
-        Prospecto objL_prospecto = new Prospecto();
-        Persona objL_persona = new Persona();
+    public int insertar(ProspectoForm objA_form){
+        int intL_result = 0;
+        Prospecto objL_prospecto = new Prospecto();        
         // Setiamos los valores de la vista
-        objL_persona.setStrPv_apellidoMaterno(objA_form.getStrPv_apellidoMaterno());
-        objL_persona.setStrPv_apellidoPaterno(objA_form.getStrPv_apellidoPaterno());
-        objL_persona.setStrPv_nombre(objA_form.getStrPv_nombre());
-        objL_persona.setStrPv_celular(objA_form.getStrPv_celular());
-        objL_persona.setStrPv_dni(objA_form.getStrPv_celular());
-        objL_persona.setStrPv_email(objA_form.getStrPv_email());
-        // Insertamos a la persona con el prospecto
-        objL_prospecto.setObjPv_persona(objL_persona);
+        objL_prospecto.setStrPv_apellidoMaterno(objA_form.getStrPv_apellidoMaterno());
+        objL_prospecto.setStrPv_apellidoPaterno(objA_form.getStrPv_apellidoPaterno());
+        objL_prospecto.setStrPv_nombre(objA_form.getStrPv_nombre());
+        objL_prospecto.setStrPv_celular(objA_form.getStrPv_celular());
+        objL_prospecto.setStrPv_dni(objA_form.getStrPv_dni());
+        objL_prospecto.setStrPv_email(objA_form.getStrPv_email());   
+        objL_prospecto.setStrPv_telefono(objA_form.getStrPv_telefono());
         // Insertamos el prospecto
         ProspectoDao objL_prospectoDao = new ProspectoDao();
-        return objL_prospectoDao.insertar(objL_prospecto);
+        intL_result = validar(objL_prospecto);
+        if (intL_result > 0){
+            if (objL_prospectoDao.insertar(objL_prospecto)){
+                intL_result = 1;
+            }else{
+                intL_result = 0;
+            }
+        }
+        return intL_result;
+    }
+    
+    private int validar(Prospecto objA_prospecto){
+        int intL_result = 0;
+        if (objA_prospecto.getStrPv_nombre().equals(""))
+            intL_result = -1;
+        else if (objA_prospecto.getStrPv_apellidoPaterno().equals(""))
+            intL_result = -2;
+        else if (objA_prospecto.getStrPv_email().equals(""))
+            intL_result = -3;
+        else 
+            intL_result = 1;
+        return intL_result;
     }
     
 }
